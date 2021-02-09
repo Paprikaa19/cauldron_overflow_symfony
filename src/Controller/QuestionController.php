@@ -19,19 +19,12 @@ class QuestionController
     }
 
     /**
-     * @Route("/login")
-     */
-    public function login(){
-        return new Response("login");
-    }
-
-    /**
      * @Route("/questions/{slug}")
      */
     public function show($slug)
     {
         return new Response(sprintf(
-            'Hello: "%s"!', ucwords(str_replace('-', ' ',$slug))
+            'Hello: "%s"!', ucwords( str_replace('-', ' ',$slug))
         ));
     }
 }
