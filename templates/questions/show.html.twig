@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+PapriPage
+{% endblock %}
+
+{% block body %}
+<h1>{{ question }}</h1>
+
+{# I'm justa  comment hiding here, don't spoil it! #}
+
+<div>
+    Eventually, we'll print the full question here!
+</div>
+
+<h2>Answers ({{ answers|length }})</h2>
+
+<ul>
+    {% for answer in answers %}
+        <li>{{ answer }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
