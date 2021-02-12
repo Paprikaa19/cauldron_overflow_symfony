@@ -5,22 +5,28 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class QuestionController extends AbstractController
 {
 
     /**
-     * @Route("/")
+     * @Route("/", name="app_homepage")
      */
     public function homepage()
     {
-        return new Response('Hello world');
+//        Manually bringing the service to render a page
+
+//        $html = $environment->render("questions/homepage.html.twig");
+//
+//        return new Response($html);
+
+        return $this->render("questions/homepage.html.twig");
     }
 
     /**
-     * @Route("/questions/{slug}")
+     * @Route("/questions/{slug}", name="app_question_show")
      */
     public function show($slug)
     {
@@ -29,6 +35,7 @@ class QuestionController extends AbstractController
             'Hello, Im the second answer for this test',
             'Are you sure that this is the test that you want to do?'
         ];
+
 
         return $this->render('questions/show.html.twig', [
             'question' => ucwords( str_replace('-', ' ',$slug)),
